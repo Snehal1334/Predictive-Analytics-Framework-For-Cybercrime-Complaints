@@ -1,0 +1,18 @@
+export default {
+  darkMode: 'class',
+  content: ['./index.html', './src/**/*.{js,jsx}'],
+  theme: {
+    extend: {
+      colors: {
+        ink: '#17202A',
+        action: '#0F766E',
+        alert: '#B91C1C',
+        signal: '#D97706'
+      },
+      boxShadow: {
+        soft: '0 10px 30px rgba(15, 23, 42, 0.08)'
+      }
+    }
+  },
+  plugins: []
+};

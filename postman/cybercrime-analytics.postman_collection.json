@@ -1,0 +1,50 @@
+{
+  "info": {
+    "name": "Cybercrime Analytics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080/api/v1" },
+    { "key": "token", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/auth/register",
+        "body": { "mode": "raw", "raw": "{\"fullName\":\"Citizen One\",\"email\":\"citizen@example.com\",\"password\":\"StrongPass123\",\"phone\":\"9999999999\"}" }
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/auth/login",
+        "body": { "mode": "raw", "raw": "{\"email\":\"admin@cyber.local\",\"password\":\"Admin@12345\"}" }
+      }
+    },
+    {
+      "name": "Create Complaint",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": "{{baseUrl}}/complaints",
+        "body": { "mode": "raw", "raw": "{\"title\":\"UPI fraud complaint\",\"description\":\"A caller pretended to be bank support and stole money through UPI after asking for OTP details.\",\"incidentDate\":\"2026-05-14\",\"address\":\"Connaught Place\",\"city\":\"Delhi\",\"state\":\"Delhi\",\"postalCode\":\"110001\",\"latitude\":28.6315,\"longitude\":77.2167,\"severity\":\"HIGH\"}" }
+      }
+    },
+    {
+      "name": "Dashboard Analytics",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": "{{baseUrl}}/analytics/dashboard"
+      }
+    }
+  ]
+}

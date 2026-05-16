@@ -1,0 +1,11 @@
+.idea/
+.vscode/
+target/
+node_modules/
+dist/
+*.log
+.env
+__pycache__/
+.pytest_cache/
+*.pyc
+ml-service/models/*.joblib
